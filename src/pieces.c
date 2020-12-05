@@ -7,60 +7,60 @@ Piece make_piece(PieceTypes type) {
     Piece p = PIECE_T(type);
     switch(type) {
         case Pawn: {
-            const int MOVES = 3;
-            Point m[MOVES] = MOVES(POINT(M1, 0), POINT(-M1, 0), POINT(0, M1));
-            for (int i=0; i<3; i++)
+            const int moves = 3;
+            Point m[MOVE_COUNT] = MOVES(POINT(M1, 0), POINT(-M1, 0), POINT(0, M1));
+            for (int i=0; i<moves; i++)
                 p.moves[i] = m[i];
-            p.move_len = MOVES;
+            p.move_len = moves;
             break;
         }
         case Bishop: {
-            const int MOVES = 4;
-            Point m[MOVES] = MOVES(POINT(MINF, MINF), POINT(-MINF, -MINF), POINT(MINF, -MINF),
+            const int moves = 4;
+            Point m[MOVE_COUNT] = MOVES(POINT(MINF, MINF), POINT(-MINF, -MINF), POINT(MINF, -MINF),
                     POINT(-MINF, MINF));
-            for (int i=0; i<MOVES; i++)
+            for (int i=0; i<moves; i++)
                 p.moves[i] = m[i];
-            p.move_len = MOVES;
+            p.move_len = moves;
             break;
         }
         case Knight: {
-            const int MOVES = 3;
-            Point m[MOVES] = MOVES(POINT(1, 0), POINT(-1, 0), POINT(0, 1));
-            for (int i=0; i<MOVES; i++)
+            const int moves = 3;
+            Point m[MOVE_COUNT] = MOVES(POINT(1, 0), POINT(-1, 0), POINT(0, 1));
+            for (int i=0; i<moves; i++)
                 p.moves[i] = m[i];
-            p.move_len = MOVES;
+            p.move_len = moves;
             break;
         }
         case Rook: {
-            const int MOVES = 4;
-            Point m[MOVES] = MOVES(POINT(MINF, 0), POINT(-MINF, 0), POINT(0, MINF), POINT(0, -MINF));
-            for (int i=0; i<MOVES; i++)
+            const int moves = 4;
+            Point m[MOVE_COUNT] = MOVES(POINT(MINF, 0), POINT(-MINF, 0), POINT(0, MINF), POINT(0, -MINF));
+            for (int i=0; i<moves; i++)
                 p.moves[i] = m[i];
-            p.move_len = MOVES;
+            p.move_len = moves;
             break;
         }
         case Queen: {
-            const int MOVES = 8;
-            Point m[MOVES] = MOVES(
+            const int moves = 8;
+            Point m[MOVE_COUNT] = MOVES(
                     POINT(-MINF,  MINF), POINT(0,  MINF), POINT(MINF,  MINF),
                     POINT(-MINF,  0),                     POINT(MINF,  0),
                     POINT(-MINF, -MINF), POINT(0, -MINF), POINT(MINF, -MINF),
             );
-            for (int i=0; i<MOVES; i++)
+            for (int i=0; i<moves; i++)
                 p.moves[i] = m[i];
-            p.move_len = MOVES;
+            p.move_len = moves;
             break;
         }
         case King: {
-            const int MOVES = 8;
-            Point m[MOVES] = MOVES(
+            const int moves = 8;
+            Point m[MOVE_COUNT] = MOVES(
                     POINT(-M1,  M1), POINT(0,  M1), POINT(M1,  M1),
                     POINT(-M1,  0),                 POINT(M1,  0),
                     POINT(-M1, -M1), POINT(0, -M1), POINT(M1, -M1),
             );
-            for (int i=0; i<MOVES; i++)
+            for (int i=0; i<moves; i++)
                 p.moves[i] = m[i];
-            p.move_len = MOVES;
+            p.move_len = moves;
             break;
         }
     }
