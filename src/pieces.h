@@ -8,6 +8,8 @@
 #define MOVES(...) { __VA_ARGS__ }
 #define PIECE_T(type) (Piece) { .type = type }
 
+#define MOVE_COUNT 8
+
 typedef enum {
     Pawn,
     Bishop,
@@ -22,31 +24,13 @@ typedef struct {
     int y;
 } Point;
 
-typedef Point Moves[];
-
 typedef struct {
     int x;
     int y;
     PieceTypes type;
+    Point moves[MOVE_COUNT];
 } Piece;
 
-Piece make_piece(PieceTypes type) {
-    Piece p = PIECE_T(type);
-    switch(type) {
-        case Pawn:
-            break;
-        case Bishop:
-            break;
-        case Knight:
-            break;
-        case Rook:
-            break;
-        case Queen:
-            break;
-        case King:
-            break;
-    }
-    return p;
-}
+Piece make_piece(PieceTypes);
 
 #endif
