@@ -42,9 +42,9 @@ Piece make_piece(PieceTypes type) {
         case Queen: {
             const int MOVES = 8;
             Point m[MOVES] = MOVES(
-                    POINT(-MINF,  MINF), POINT(0,  MINF),  POINT(MINF,  MINF),
-                    POINT(-MINF,  0),                POINT(MINF,  0),
-                    POINT(-MINF, -MINF), POINT(0, -MINF),  POINT(MINF, -MINF),
+                    POINT(-MINF,  MINF), POINT(0,  MINF), POINT(MINF,  MINF),
+                    POINT(-MINF,  0),                     POINT(MINF,  0),
+                    POINT(-MINF, -MINF), POINT(0, -MINF), POINT(MINF, -MINF),
             );
             for (int i=0; i<MOVES; i++)
                 p.moves[i] = m[i];
@@ -54,9 +54,9 @@ Piece make_piece(PieceTypes type) {
         case King: {
             const int MOVES = 8;
             Point m[MOVES] = MOVES(
-                    POINT(-M1,  M1), POINT(0,  M1),  POINT(M1,  M1),
-                    POINT(-M1,  0),                POINT(M1,  0),
-                    POINT(-M1, -M1), POINT(0, -M1),  POINT(M1, -M1),
+                    POINT(-M1,  M1), POINT(0,  M1), POINT(M1,  M1),
+                    POINT(-M1,  0),                 POINT(M1,  0),
+                    POINT(-M1, -M1), POINT(0, -M1), POINT(M1, -M1),
             );
             for (int i=0; i<MOVES; i++)
                 p.moves[i] = m[i];
