@@ -11,7 +11,6 @@ typedef enum {
     Rook,
     Queen,
     King,
-
 } PieceTypes;
 
 typedef struct {
@@ -19,7 +18,9 @@ typedef struct {
     int y;
 } Point;
 
-typedef  Point Moves[];
+Point point(int, int);
+
+typedef Point Moves[];
 
 typedef struct {
     int x;
