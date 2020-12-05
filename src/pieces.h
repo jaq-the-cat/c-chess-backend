@@ -19,9 +19,7 @@ typedef struct {
     int y;
 } Point;
 
-typedef struct {
-    Point from_origin[];
-} Moves;
+typedef  Point Moves[];
 
 typedef struct {
     int x;
