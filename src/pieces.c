@@ -6,20 +6,26 @@
 Piece make_piece(PieceTypes type) {
     Piece p = PIECE_T(type);
     switch(type) {
-        case Pawn:
-            //Point m[MOVE_COUNT] = MOVES(POINT(1, 0), POINT(-1, 0), POINT(0, 1));
-            //for (int i=0; i<MOVE_COUNT; i++);
+        case Pawn: {
+            Point m[MOVE_COUNT] = MOVES(POINT(1, 0), POINT(-1, 0), POINT(0, 1));
+            for (int i=0; i<MOVE_COUNT; i++);
             break;
-        case Bishop:
+        }
+        case Bishop: {
             break;
-        case Knight:
+        }
+        case Knight: {
             break;
-        case Rook:
+        }
+        case Rook: {
             break;
-        case Queen:
+        }
+        case Queen: {
             break;
-        case King:
+        }
+        case King: {
             break;
+        }
     }
     return p;
 }
