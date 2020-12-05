@@ -11,6 +11,7 @@ Piece make_piece(PieceTypes type) {
             Point m[MOVES] = MOVES(POINT(MOVE_1, 0), POINT(-MOVE_1, 0), POINT(0, MOVE_1));
             for (int i=0; i<3; i++)
                 p.moves[i] = m[i];
+            p.move_len = MOVES;
             break;
         }
         case Bishop: {
@@ -19,6 +20,7 @@ Piece make_piece(PieceTypes type) {
                     POINT(-MOVE_INF, MOVE_INF));
             for (int i=0; i<MOVES; i++)
                 p.moves[i] = m[i];
+            p.move_len = MOVES;
             break;
         }
         case Knight: {
@@ -26,6 +28,7 @@ Piece make_piece(PieceTypes type) {
             Point m[MOVES] = MOVES(POINT(1, 0), POINT(-1, 0), POINT(0, 1));
             for (int i=0; i<MOVES; i++)
                 p.moves[i] = m[i];
+            p.move_len = MOVES;
             break;
         }
         case Rook: {
@@ -33,6 +36,7 @@ Piece make_piece(PieceTypes type) {
             Point m[MOVES] = MOVES(POINT(1, 0), POINT(-1, 0), POINT(0, 1));
             for (int i=0; i<MOVES; i++)
                 p.moves[i] = m[i];
+            p.move_len = MOVES;
             break;
         }
         case Queen: {
@@ -40,6 +44,7 @@ Piece make_piece(PieceTypes type) {
             Point m[MOVES] = MOVES(POINT(1, 0), POINT(-1, 0), POINT(0, 1));
             for (int i=0; i<MOVES; i++)
                 p.moves[i] = m[i];
+            p.move_len = MOVES;
             break;
         }
         case King: {
@@ -47,6 +52,7 @@ Piece make_piece(PieceTypes type) {
             Point m[MOVES] = MOVES(POINT(1, 0), POINT(-1, 0), POINT(0, 1));
             for (int i=0; i<MOVES; i++)
                 p.moves[i] = m[i];
+            p.move_len = MOVES;
             break;
         }
     }

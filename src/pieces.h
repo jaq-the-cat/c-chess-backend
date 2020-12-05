@@ -28,6 +28,7 @@ typedef struct {
     int x;
     int y;
     PieceTypes type;
+    int move_len;
     Point moves[MOVE_COUNT];
 } Piece;
 
