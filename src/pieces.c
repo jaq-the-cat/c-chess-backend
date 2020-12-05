@@ -8,7 +8,7 @@ Piece make_piece(PieceTypes type) {
     switch(type) {
         case Pawn: {
             const int moves = 3;
-            Point m[MOVE_COUNT] = MOVES(POINT(M1, 0), POINT(-M1, 0), POINT(0, M1));
+            const Point m[MOVE_COUNT] = MOVES(POINT(M1, 0), POINT(-M1, 0), POINT(0, M1));
             for (int i=0; i<moves; i++)
                 p.moves[i] = m[i];
             p.move_len = moves;
@@ -16,7 +16,7 @@ Piece make_piece(PieceTypes type) {
         }
         case Bishop: {
             const int moves = 4;
-            Point m[MOVE_COUNT] = MOVES(POINT(MINF, MINF), POINT(-MINF, -MINF), POINT(MINF, -MINF),
+            const Point m[MOVE_COUNT] = MOVES(POINT(MINF, MINF), POINT(-MINF, -MINF), POINT(MINF, -MINF),
                     POINT(-MINF, MINF));
             for (int i=0; i<moves; i++)
                 p.moves[i] = m[i];
@@ -25,7 +25,7 @@ Piece make_piece(PieceTypes type) {
         }
         case Knight: {
             const int moves = 3;
-            Point m[MOVE_COUNT] = MOVES(POINT(1, 0), POINT(-1, 0), POINT(0, 1));
+            const Point m[MOVE_COUNT] = MOVES(POINT(1, 0), POINT(-1, 0), POINT(0, 1));
             for (int i=0; i<moves; i++)
                 p.moves[i] = m[i];
             p.move_len = moves;
@@ -33,7 +33,7 @@ Piece make_piece(PieceTypes type) {
         }
         case Rook: {
             const int moves = 4;
-            Point m[MOVE_COUNT] = MOVES(POINT(MINF, 0), POINT(-MINF, 0), POINT(0, MINF), POINT(0, -MINF));
+            const Point m[MOVE_COUNT] = MOVES(POINT(MINF, 0), POINT(-MINF, 0), POINT(0, MINF), POINT(0, -MINF));
             for (int i=0; i<moves; i++)
                 p.moves[i] = m[i];
             p.move_len = moves;
@@ -41,7 +41,7 @@ Piece make_piece(PieceTypes type) {
         }
         case Queen: {
             const int moves = 8;
-            Point m[MOVE_COUNT] = MOVES(
+            const Point m[MOVE_COUNT] = MOVES(
                     POINT(-MINF,  MINF), POINT(0,  MINF), POINT(MINF,  MINF),
                     POINT(-MINF,  0),                     POINT(MINF,  0),
                     POINT(-MINF, -MINF), POINT(0, -MINF), POINT(MINF, -MINF),
@@ -53,7 +53,7 @@ Piece make_piece(PieceTypes type) {
         }
         case King: {
             const int moves = 8;
-            Point m[MOVE_COUNT] = MOVES(
+            const Point m[MOVE_COUNT] = MOVES(
                     POINT(-M1,  M1), POINT(0,  M1), POINT(M1,  M1),
                     POINT(-M1,  0),                 POINT(M1,  0),
                     POINT(-M1, -M1), POINT(0, -M1), POINT(M1, -M1),
