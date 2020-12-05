@@ -1,8 +1,8 @@
 #ifndef PIECES_H
 #define PIECES_H
 
-#define MOVE_1 1
-#define MOVE_INF 2
+#define M1 1
+#define MINF 2
 
 #define POINT(X, Y) (Point) { X, Y }
 #define MOVES(...) { __VA_ARGS__ }
