@@ -18,8 +18,6 @@ typedef struct {
     int y;
 } Point;
 
-Point point(int, int);
-
 typedef Point Moves[];
 
 typedef struct {
