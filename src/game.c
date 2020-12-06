@@ -52,7 +52,7 @@ void make_game() {
     }
 
     // print moves for selected piece
-    for (int m=0; m<PAWN_L; m++) {
+    for (int m=0; m<get_move_len(sel->type); m++) {
         Point move = POINT(sel->x + PAWN_M[m].x, sel->y + PAWN_M[m].y);
         if (is_valid(move.x, move.y))
             printf("(%d, %d)\n", move.x, move.y);
