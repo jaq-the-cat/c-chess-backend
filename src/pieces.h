@@ -6,7 +6,7 @@
 
 #define POINT(X, Y) (Point) { X, Y }
 #define MOVES(...) { __VA_ARGS__ }
-#define PIECE_T(type) (Piece) { .type = type }
+#define PIECE_C(type, team) (Piece) { .type = type, .team = team }
 
 #define MOVE_COUNT 8
 
@@ -19,6 +19,11 @@ typedef enum {
     King,
 } PieceTypes;
 
+typedef enum {
+    White,
+    Black,
+} PieceTeam;
+
 typedef struct {
     int x;
     int y;
@@ -27,11 +32,13 @@ typedef struct {
 typedef struct {
     int x;
     int y;
+    PieceTeam team;
+
     PieceTypes type;
-    int move_len;
     Point moves[MOVE_COUNT];
+    int move_len;
 } Piece;
 
-Piece make_piece(PieceTypes);
+Piece make_piece(PieceTypes, PieceTeam, int);
 
 #endif

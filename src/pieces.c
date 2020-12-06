@@ -3,8 +3,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-Piece make_piece(PieceTypes type) {
-    Piece p = PIECE_T(type);
+Piece make_piece(PieceTypes type, PieceTeam team, int x) {
+    Piece p = PIECE_C(type, team);
+    switch(team) {
+        case White:
+            break;
+        case Black:
+            break;
+    }
     switch(type) {
         case Pawn: {
             const int moves = 3;
