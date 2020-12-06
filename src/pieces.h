@@ -51,8 +51,7 @@ typedef const Point Moves[MOVE_COUNT];
 
 typedef Piece Board[BOARD_SIZE*BOARD_SIZE];
 
-Piece make_piece(PieceTypes);
-void set_position(Piece*, PieceTeam, int);
+Piece make_piece(PieceTypes, PieceTeam, int);
 
 // Moves
 static Moves PAWN_M = MOVES(POINT(M1, 0), POINT(-M1, 0), POINT(0, M1));
