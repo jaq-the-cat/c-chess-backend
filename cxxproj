@@ -1,3 +1,4 @@
 -SOURCE
 src/main.c
 src/pieces.c
+src/game.c
