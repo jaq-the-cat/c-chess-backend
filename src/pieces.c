@@ -3,20 +3,26 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-Piece make_piece(PieceTypes type, PieceTeam team, int x) {
+Piece make_piece(PieceTypes type) {
+    Piece p = PIECE_C(type, NoneTeam);
+    get_moves_for(&p);
+    return p;
+}
+
+Piece make_full_piece(PieceTypes type, PieceTeam team, int x) {
     int y;
     if (team == White)
         y = BOARD_SIZE - 1 - (type == Pawn);
     else
         y = 0 + (type == Pawn);
     Piece p = PIECE_C(type, team);
-    get_moves_for(type, &p);
+    get_moves_for(&p);
     return p;
 }
 
-void get_moves_for(PieceTypes type, Piece *p) {
+void get_moves_for(Piece *p) {
     int moves = 0;
-    switch(type) {
+    switch(p->type) {
         case Pawn: {
             moves = 3;
             const Point m[MOVE_COUNT] = MOVES(POINT(M1, 0), POINT(-M1, 0), POINT(0, M1));
@@ -68,6 +74,8 @@ void get_moves_for(PieceTypes type, Piece *p) {
                 p->moves[i] = m[i];
             break;
         }
+        default:
+            break;
     }
     p->move_len = moves;
 }
