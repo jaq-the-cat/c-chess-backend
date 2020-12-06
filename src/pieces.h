@@ -49,4 +49,20 @@ Piece make_piece(PieceTypes);
 void set_position(Piece*, PieceTeam, int);
 void get_moves_for(Piece*);
 
+// Moves
+typedef const Point Moves[MOVE_COUNT];
+static Moves PAWN = MOVES(POINT(M1, 0), POINT(-M1, 0), POINT(0, M1));
+static Moves BISHOP = MOVES(POINT(MINF, MINF), POINT(-MINF, -MINF), POINT(MINF, -MINF),
+        POINT(-MINF, MINF));
+static Moves KNIGHT = MOVES(POINT(1, 0), POINT(-1, 0), POINT(0, 1));
+static Moves ROOK = MOVES(POINT(MINF, 0), POINT(-MINF, 0), POINT(0, MINF), POINT(0, -MINF));
+static Moves QUEEN = MOVES(
+        POINT(-MINF,  MINF), POINT(0,  MINF), POINT(MINF,  MINF),
+        POINT(-MINF,  0),                     POINT(MINF,  0),
+        POINT(-MINF, -MINF), POINT(0, -MINF), POINT(MINF, -MINF));
+static Moves KING = MOVES(
+        POINT(-M1,  M1), POINT(0,  M1), POINT(M1,  M1),
+        POINT(-M1,  0),                 POINT(M1,  0),
+        POINT(-M1, -M1), POINT(0, -M1), POINT(M1, -M1));
+
 #endif
