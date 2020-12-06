@@ -42,8 +42,7 @@ void make_game() {
     init_s_piece(board, King, 3);
     init_s_piece(board, Queen, 4);
 
-    int sel_x = 1;
-    int sel_y = 0;
+    int sel_x = 1, sel_y = 0;
     Piece *sel;
 
     // print board
