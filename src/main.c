@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "pieces.h"
+#include "board.h"
 
 void make_game() {
     Board board = {0};

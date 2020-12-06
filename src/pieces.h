@@ -8,8 +8,6 @@
 #define MOVES(...) { __VA_ARGS__ }
 #define PIECE_C(type) (Piece) { 0, 0, NoneTeam, type }
 
-#define BOARD_SIZE 8
-
 #define MOVE_COUNT 8
 
 #define PAWN_L 3
@@ -18,6 +16,11 @@
 #define ROOK_L 4
 #define QUEEN_L 8
 #define KING_L 8
+
+typedef struct {
+    int x;
+    int y;
+} Point;
 
 typedef enum {
     NoneType,
@@ -38,18 +41,11 @@ typedef enum {
 typedef struct {
     int x;
     int y;
-} Point;
-
-typedef struct {
-    int x;
-    int y;
     PieceTeam team;
     PieceTypes type;
 } Piece;
 
 typedef const Point Moves[MOVE_COUNT];
-
-typedef Piece Board[BOARD_SIZE*BOARD_SIZE];
 
 Piece make_piece(PieceTypes, PieceTeam, int);
 
