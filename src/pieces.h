@@ -13,7 +13,7 @@
 #define MOVE_COUNT 8
 
 typedef enum {
-    Pawn,
+    Pawn = 1,
     Bishop,
     Knight,
     Rook,
@@ -40,6 +40,8 @@ typedef struct {
     Point moves[MOVE_COUNT];
     int move_len;
 } Piece;
+
+typedef Piece Board[BOARD_SIZE*BOARD_SIZE];
 
 Piece make_piece(PieceTypes, PieceTeam, int);
 
