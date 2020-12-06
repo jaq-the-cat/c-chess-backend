@@ -6,7 +6,9 @@
 
 #define POINT(X, Y) (Point) { X, Y }
 #define MOVES(...) { __VA_ARGS__ }
-#define PIECE_C(type, team) (Piece) { .type = type, .team = team }
+#define PIECE_C(x, y, type, team) (Piece) { .x = x, .y = y, .type = type, .team = team }
+
+#define BOARD_SIZE 8
 
 #define MOVE_COUNT 8
 

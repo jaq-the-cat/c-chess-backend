@@ -4,13 +4,12 @@
 #include <stdlib.h>
 
 Piece make_piece(PieceTypes type, PieceTeam team, int x) {
-    Piece p = PIECE_C(type, team);
-    switch(team) {
-        case White:
-            break;
-        case Black:
-            break;
-    }
+    int y;
+    if (team == White)
+        y = BOARD_SIZE - 1 - (type == Pawn);
+    else
+        y = 0 + (type == Pawn);
+    Piece p = PIECE_C(x, y, type, team);
     switch(type) {
         case Pawn: {
             const int moves = 3;

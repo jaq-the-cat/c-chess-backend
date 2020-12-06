@@ -3,7 +3,7 @@
 #include "pieces.h"
 
 int main() {
-    Piece p = make_piece(Queen, White);
+    Piece p = make_piece(Queen, White, 0);
     for (int i=0; i<p.move_len; i++)
         printf("(%d, %d) ", p.moves[i].x, p.moves[i].y);
     return 0;
