@@ -9,7 +9,7 @@
 
 #define MOVE_COUNT 8
 
-#define PAWN_L 3
+#define PAWN_L 1
 #define BISHOP_L 4
 #define KNIGHT_L 8
 #define ROOK_L 4
@@ -49,7 +49,7 @@ typedef const Point Moves[MOVE_COUNT];
 Piece make_piece(PieceTypes, PieceTeam, int);
 
 // Moves
-static Moves PAWN_M = MOVES(POINT(1, 0), POINT(-1, 0), POINT(0, 1));
+static Moves PAWN_M = MOVES(POINT(0, 1));
 
 static Moves ROOK_M = MOVES(POINT(MINF, 0), POINT(-MINF, 0), POINT(0, MINF), POINT(0, -MINF));
 
