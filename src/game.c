@@ -7,7 +7,9 @@ void make_game() {
     Board board = {0};
 
     init_pawns(board);
-    init_rooks(board);
+    init_bi_piece(board, Rook, 0);
+    init_bi_piece(board, Knight, 1);
+    init_bi_piece(board, Bishop, 2);
 
     // print board
     for (int y=0; y<BOARD_SIZE; y++) {
@@ -29,56 +31,20 @@ void init_pawns(Board board) {
     }
 }
 
-void init_rooks(Board board) {
+void init_bi_piece(Board board, PieceTypes type, int xoff) {
     Piece p;
 
     // left
-    p = make_piece(Rook, White, 0);
-    board[BOARD_SIZE-1 + BOARD_SIZE*p.y] = p;
+    p = make_piece(type, White, xoff);
+    board[xoff + BOARD_SIZE*p.y] = p;
 
-    p = make_piece(Rook, Black, 0);
-    board[BOARD_SIZE-1 + BOARD_SIZE*p.y] = p;
-
-    // right
-    p = make_piece(Rook, White, BOARD_SIZE-1);
-    board[0 + BOARD_SIZE*p.y] = p;
-
-    p = make_piece(Rook, Black, BOARD_SIZE-1);
-    board[0 + BOARD_SIZE*p.y] = p;
-}
-
-void init_knights(Board board) {
-    Piece p;
-
-    // left
-    p = make_piece(Knight, White, 1);
-    board[0 + BOARD_SIZE*p.y] = p;
-
-    p = make_piece(Knight, Black, 1);
-    board[0 + BOARD_SIZE*p.y] = p;
+    p = make_piece(type, Black, xoff);
+    board[xoff + BOARD_SIZE*p.y] = p;
 
     // right
-    p = make_piece(Knight, White, BOARD_SIZE-1-1);
-    board[BOARD_SIZE-1-1 + BOARD_SIZE*p.y] = p;
+    p = make_piece(type, White, BOARD_SIZE-1-xoff);
+    board[BOARD_SIZE-1-xoff + BOARD_SIZE*p.y] = p;
 
-    p = make_piece(Knight, Black, BOARD_SIZE-1-1);
-    board[BOARD_SIZE-1-1 + BOARD_SIZE*p.y] = p;
-}
-
-void init_bishops(Board board) {
-    Piece p;
-
-    // left
-    p = make_piece(Bishop, White, 2);
-    board[0 + BOARD_SIZE*p.y] = p;
-
-    p = make_piece(Bishop, Black, 2);
-    board[0 + BOARD_SIZE*p.y] = p;
-
-    // right
-    p = make_piece(Bishop, White, BOARD_SIZE-1-2);
-    board[BOARD_SIZE-1-2 + BOARD_SIZE*p.y] = p;
-
-    p = make_piece(Bishop, Black, BOARD_SIZE-1-2);
-    board[BOARD_SIZE-1-2 + BOARD_SIZE*p.y] = p;
+    p = make_piece(type, Black, BOARD_SIZE-1-xoff);
+    board[BOARD_SIZE-1-xoff + BOARD_SIZE*p.y] = p;
 }

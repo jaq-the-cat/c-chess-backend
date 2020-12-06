@@ -6,7 +6,7 @@
 
 void make_game();
 
-void init_pawns(Board board);
-void init_rooks(Board board);
+void init_pawns(Board);
+void init_bi_piece(Board, PieceTypes, int);
 
 #endif
