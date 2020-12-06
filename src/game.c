@@ -35,7 +35,7 @@ void make_game() {
     init_s_piece(board, Queen, 4);
 
     int sel_x = 1;
-    int sel_y = 1;
+    int sel_y = 0;
     Piece *sel;
 
     // print board
@@ -53,7 +53,7 @@ void make_game() {
 
     // print moves for selected piece
     for (int m=0; m<get_move_len(sel->type); m++) {
-        Point move = POINT(sel->x + PAWN_M[m].x, sel->y + PAWN_M[m].y);
+        Point move = POINT(sel->x + KNIGHT_M[m].x, sel->y + KNIGHT_M[m].y);
         if (is_valid(move.x, move.y))
             printf("(%d, %d)\n", move.x, move.y);
     }
