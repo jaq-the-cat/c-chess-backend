@@ -3,6 +3,20 @@
 
 #include "game.h"
 
+void make_game() {
+    Board board = {0};
+
+    init_pawns(board);
+    init_rooks(board);
+
+    // print board
+    for (int y=0; y<BOARD_SIZE; y++) {
+        for (int x=0; x<BOARD_SIZE; x++)
+            printf("%d ", board[x + BOARD_SIZE*y].type);
+        printf("\n");
+    }
+}
+
 void init_pawns(Board board) {
     Piece p;
 
@@ -31,18 +45,4 @@ void init_rooks(Board board) {
 
     p = make_piece(Rook, Black, BOARD_SIZE-1);
     board[BOARD_SIZE-1 + BOARD_SIZE*p.y] = p;
-}
-
-void make_game() {
-    Board board = {0};
-
-    init_pawns(board);
-    init_rooks(board);
-
-    // print board
-    for (int y=0; y<BOARD_SIZE; y++) {
-        for (int x=0; x<BOARD_SIZE; x++)
-            printf("%d ", board[x + BOARD_SIZE*y].type);
-        printf("\n");
-    }
 }
