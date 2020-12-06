@@ -3,8 +3,16 @@
 
 #include "game.h"
 
-int is_valid(Board board, int x, int y) {
-    return x >= 0 && y >= 0 && x < BOARD_SIZE && y < BOARD_SIZE && board[x + BOARD_SIZE*y].type == NoneType;
+int is_valid(int x, int y) {
+    return x >= 0 && y >= 0 && x < BOARD_SIZE && y < BOARD_SIZE;
+}
+
+int is_empty(Board board, int x, int y) {
+    return board[x + BOARD_SIZE*y].type == NoneType;
+}
+
+int is_other_team(Board board, int x, int y, PieceTeam curteam) {
+    return board[x + BOARD_SIZE*y].team != NoneType;
 }
 
 int get_move_len(PieceTypes type) {
