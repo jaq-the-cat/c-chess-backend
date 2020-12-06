@@ -3,6 +3,27 @@
 
 #include "game.h"
 
+int is_valid(int x, int y) {
+    return x >= 0 && y >= 0 && x < BOARD_SIZE && y < BOARD_SIZE;
+}
+
+int get_move_len(PieceTypes type) {
+    switch (type) {
+        case Pawn:
+            return PAWN_L;
+        case Rook:
+            return ROOK_L;
+        case Knight:
+            return KNIGHT_L;
+        case King:
+            return KING_L;
+        case Queen:
+            return QUEEN_L;
+        default:
+            return 0;
+    }
+}
+
 void make_game() {
     Board board = {0};
 
@@ -13,11 +34,28 @@ void make_game() {
     init_s_piece(board, King, 3);
     init_s_piece(board, Queen, 4);
 
+    int sel_x = 1;
+    int sel_y = 1;
+    Piece *sel;
+
     // print board
     for (int y=0; y<BOARD_SIZE; y++) {
-        for (int x=0; x<BOARD_SIZE; x++)
-            printf("%d ", board[x + BOARD_SIZE*y].type);
+        for (int x=0; x<BOARD_SIZE; x++) {
+            if (x == sel_x && y == sel_y) {
+                sel = &board[x + BOARD_SIZE*y];
+                printf("S ");
+            }
+            else
+                printf("%d ", board[x + BOARD_SIZE*y].type);
+        }
         printf("\n");
+    }
+
+    // print moves for selected piece
+    for (int m=0; m<PAWN_L; m++) {
+        Point move = POINT(sel->x + PAWN_M[m].x, sel->y + PAWN_M[m].y);
+        if (is_valid(move.x, move.y))
+            printf("(%d, %d)\n", move.x, move.y);
     }
 }
 
