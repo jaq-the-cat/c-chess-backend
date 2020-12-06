@@ -25,11 +25,11 @@ typedef struct {
 typedef enum {
     NoneType,
     Pawn,
-    Bishop,
-    Knight,
     Rook,
-    Queen,
+    Knight,
+    Bishop,
     King,
+    Queen,
 } PieceTypes;
 
 typedef enum {
