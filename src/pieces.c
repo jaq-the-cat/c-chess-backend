@@ -4,20 +4,19 @@
 #include <stdlib.h>
 
 Piece make_piece(PieceTypes type) {
-    Piece p = PIECE_C(type, NoneTeam);
+    Piece p = PIECE_C(type);
     get_moves_for(&p);
     return p;
 }
 
-Piece make_full_piece(PieceTypes type, PieceTeam team, int x) {
+void set_position(Piece *p, PieceTeam team, int x) {
+    p->x = x;
     int y;
     if (team == White)
-        y = BOARD_SIZE - 1 - (type == Pawn);
+        y = BOARD_SIZE - 1 - (p->type == Pawn);
     else
-        y = 0 + (type == Pawn);
-    Piece p = PIECE_C(type, team);
-    get_moves_for(&p);
-    return p;
+        y = 0 + (p->type == Pawn);
+    p->y = y;
 }
 
 void get_moves_for(Piece *p) {

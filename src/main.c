@@ -5,11 +5,18 @@
 void make_game() {
     Board board = {0};
     Piece p;
+    // make pieces
+    Piece pawn = make_piece(Pawn);
+    Piece bishop = make_piece(Bishop);
+    Piece knight = make_piece(Knight);
+    Piece rook = make_piece(Rook);
+    Piece queen = make_piece(Queen);
+    Piece king = make_piece(King);
     // Pawns
     for (int x=0; x<BOARD_SIZE; x++) {
-        p = make_piece(Pawn, White, x);
+        set_position(&pawn, White, x);
         board[x + BOARD_SIZE*p.y] = p;
-        p = make_piece(Pawn, Black, x);
+        set_position(&pawn, Black, x);
         board[x + BOARD_SIZE*p.y] = p;
     }
     // Rooks

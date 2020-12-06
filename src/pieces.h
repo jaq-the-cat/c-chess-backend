@@ -6,7 +6,7 @@
 
 #define POINT(X, Y) (Point) { X, Y }
 #define MOVES(...) { __VA_ARGS__ }
-#define PIECE_C(type, team) (Piece) { 0, 0, team, type }
+#define PIECE_C(type) (Piece) { 0, 0, NoneTeam, type }
 
 #define BOARD_SIZE 8
 
@@ -46,7 +46,7 @@ typedef struct {
 typedef Piece Board[BOARD_SIZE*BOARD_SIZE];
 
 Piece make_piece(PieceTypes);
-Piece make_full_piece(PieceTypes, PieceTeam, int);
+void set_position(Piece*, PieceTeam, int);
 void get_moves_for(Piece*);
 
 #endif
