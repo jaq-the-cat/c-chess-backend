@@ -8,5 +8,6 @@ void make_game();
 
 void init_pawns(Board);
 void init_bi_piece(Board, PieceTypes, int);
+void init_s_piece(Board, PieceTypes, int);
 
 #endif
