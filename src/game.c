@@ -3,8 +3,8 @@
 
 #include "game.h"
 
-int is_valid(int x, int y) {
-    return x >= 0 && y >= 0 && x < BOARD_SIZE && y < BOARD_SIZE;
+int is_valid(Board board, int x, int y) {
+    return x >= 0 && y >= 0 && x < BOARD_SIZE && y < BOARD_SIZE && board[x + BOARD_SIZE*y].type == NoneType;
 }
 
 int get_move_len(PieceTypes type) {
@@ -54,7 +54,7 @@ void make_game() {
     // print moves for selected piece
     for (int m=0; m<get_move_len(sel->type); m++) {
         Point move = POINT(sel->x + KNIGHT_M[m].x, sel->y + KNIGHT_M[m].y);
-        if (is_valid(move.x, move.y))
+        if (is_valid(board, move.x, move.y))
             printf("(%d, %d)\n", move.x, move.y);
     }
 }
