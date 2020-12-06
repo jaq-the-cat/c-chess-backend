@@ -46,3 +46,21 @@ void init_rooks(Board board) {
     p = make_piece(Rook, Black, BOARD_SIZE-1);
     board[BOARD_SIZE-1 + BOARD_SIZE*p.y] = p;
 }
+
+void init_bishops(Board board) {
+    Piece p;
+
+    // left
+    p = make_piece(Bishop, White, 2);
+    board[0 + BOARD_SIZE*p.y] = p;
+
+    p = make_piece(Bishop, Black, BOARD_SIZE-1);
+    board[0 + BOARD_SIZE*p.y] = p;
+
+    // right
+    p = make_piece(Bishop, White, 0);
+    board[BOARD_SIZE-1-2 + BOARD_SIZE*p.y] = p;
+
+    p = make_piece(Bishop, Black, BOARD_SIZE-1);
+    board[BOARD_SIZE-1-2 + BOARD_SIZE*p.y] = p;
+}
