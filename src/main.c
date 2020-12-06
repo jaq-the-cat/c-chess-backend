@@ -20,13 +20,13 @@ void make_game() {
     board[0 + BOARD_SIZE*p.y] = p;
 
     p = make_piece(Rook, Black, BOARD_SIZE-1);
-    board[BOARD_SIZE-1 + BOARD_SIZE*p.y] = p;
-
-    // right
-    p = make_piece(Pawn, White, 0);
     board[0 + BOARD_SIZE*p.y] = p;
 
-    p = make_piece(Pawn, Black, BOARD_SIZE-1);
+    // right
+    p = make_piece(Rook, White, 0);
+    board[BOARD_SIZE-1 + BOARD_SIZE*p.y] = p;
+
+    p = make_piece(Rook, Black, BOARD_SIZE-1);
     board[BOARD_SIZE-1 + BOARD_SIZE*p.y] = p;
 
     for (int y=0; y<BOARD_SIZE; y++) {
