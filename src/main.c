@@ -12,6 +12,7 @@ void make_game() {
         p = make_piece(Pawn, Black, x);
         board[x + BOARD_SIZE*p.y] = p;
     }
+    // Rooks
 
     for (int y=0; y<BOARD_SIZE; y++) {
         for (int x=0; x<BOARD_SIZE; x++)
