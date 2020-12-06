@@ -1,8 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "pieces.h"
-#include "board.h"
 #include "game.h"
 
 void init_pawns(Board board) {
