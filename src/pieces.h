@@ -12,6 +12,13 @@
 
 #define MOVE_COUNT 8
 
+#define PAWN_L 3
+#define BISHOP_L 4
+#define KNIGHT_L 3
+#define ROOK_L 4
+#define QUEEN_L 8
+#define KING_L 8
+
 typedef enum {
     NoneType,
     Pawn,
@@ -49,28 +56,22 @@ void set_position(Piece*, PieceTeam, int);
 
 // Moves
 static Moves PAWN_M = MOVES(POINT(M1, 0), POINT(-M1, 0), POINT(0, M1));
-static const int PAWN_L = 3;
 
 static Moves BISHOP_M = MOVES(POINT(MINF, MINF), POINT(-MINF, -MINF), POINT(MINF, -MINF),
         POINT(-MINF, MINF));
-static const int BISHOP_L = 4;
 
 static Moves KNIGHT_M = MOVES(POINT(1, 0), POINT(-1, 0), POINT(0, 1));
-static const int KNIGHT_L = 3;
 
 static Moves ROOK_M = MOVES(POINT(MINF, 0), POINT(-MINF, 0), POINT(0, MINF), POINT(0, -MINF));
-static const int ROOK_L = 4;
 
 static Moves QUEEN_M = MOVES(
         POINT(-MINF,  MINF), POINT(0,  MINF), POINT(MINF,  MINF),
         POINT(-MINF,  0),                     POINT(MINF,  0),
         POINT(-MINF, -MINF), POINT(0, -MINF), POINT(MINF, -MINF));
-static const int QUEEN_L = 8;
 
 static Moves KING_M = MOVES(
         POINT(-M1,  M1), POINT(0,  M1), POINT(M1,  M1),
         POINT(-M1,  0),                 POINT(M1,  0),
         POINT(-M1, -M1), POINT(0, -M1), POINT(M1, -M1));
-static const int KING_L = 8;
 
 #endif
