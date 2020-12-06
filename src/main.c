@@ -15,9 +15,9 @@ void make_game() {
     // Pawns
     for (int x=0; x<BOARD_SIZE; x++) {
         set_position(&pawn, White, x);
-        board[x + BOARD_SIZE*p.y] = p;
+        board[x + BOARD_SIZE*pawn.y] = pawn;
         set_position(&pawn, Black, x);
-        board[x + BOARD_SIZE*p.y] = p;
+        board[x + BOARD_SIZE*pawn.y] = pawn;
     }
     // Rooks
 
