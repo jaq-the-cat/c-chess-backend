@@ -51,6 +51,8 @@ Piece make_piece(PieceTypes, PieceTeam, int);
 // Moves
 static Moves PAWN_M = MOVES(POINT(0, 1));
 
+static Moves PAWN_A = MOVES(POINT(1, 1), POINT(-1, 1));
+
 static Moves ROOK_M = MOVES(POINT(MINF, 0), POINT(-MINF, 0), POINT(0, MINF), POINT(0, -MINF));
 
 static Moves KNIGHT_M = MOVES(
