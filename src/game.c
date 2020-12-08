@@ -32,6 +32,35 @@ int get_move_len(PieceTypes type) {
     }
 }
 
+const Point* get_piece_moves(PieceTypes type) {
+    switch (type) {
+        case Pawn:
+            return PAWN_M;
+        case Rook:
+            return ROOK_M;
+        case Knight:
+            return KNIGHT_M;
+        case King:
+            return KING_M;
+        case Queen:
+            return QUEEN_M;
+        default:
+            return 0;
+    }
+}
+
+int move(Board board, Piece *p, int x, int y) {
+    // print moves for selected piece
+    int found = 0;
+    for (int m=0; m<get_move_len(p->type); m++)
+        if (get_piece_moves(p->type)->x == x && get_piece_moves(p->type)->y == y)
+            found = 1;
+    if (found == 1 && is_valid(x, y) && (is_other_team(board, x, y, p->team) || is_empty(board, x, y)))
+        return 1;
+    else
+        return 0;
+}
+
 void make_game() {
     Board board = {0};
 
@@ -56,13 +85,6 @@ void make_game() {
                 printf("%d ", board[x + BOARD_SIZE*y].type);
         }
         printf("\n");
-    }
-
-    // print moves for selected piece
-    for (int m=0; m<get_move_len(sel->type); m++) {
-        Point move = POINT(sel->x + KNIGHT_M[m].x, sel->y + KNIGHT_M[m].y);
-        if (is_valid(move.x, move.y) && is_empty(board, move.x, move.y))
-            printf("(%d, %d)\n", move.x, move.y);
     }
 }
 
